@@ -45,11 +45,6 @@ public class Inicio extends JFrame {
 		});
 
 	}
-
-	/**
-	 * @param Inicio Esta clase contiene todos los objetos que se usarán en esta
-	 *               aplicacion
-	 */
 	public Inicio() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1046, 548);
@@ -229,5 +224,17 @@ public class Inicio extends JFrame {
 		textEmail.setText(con.getEmail());
 		textTelefono.setText(con.getTelefono());
 
+	}
+
+DefaultTableModel M;
+
+
+	private void CrearModelo() {
+		try {
+			M = (new DefaultTableModel(null, new String[] { "Nombre", "Apellido", "Direccion", "Email", "Telefono" }) {
+			});
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Error");
+		}
 	}
 }
