@@ -19,9 +19,18 @@ import javax.swing.table.DefaultTableModel;
 
 import Clase.Contactos;
 
+<<<<<<< HEAD
 
 /*Comentario de prueba para git despues de haber echo la rama paralela */
 
+=======
+/**
+ * 
+ * @author Daniel García Muñoz
+ * @version Beta
+ *
+ */
+>>>>>>> comentarios
 public class Inicio extends JFrame {
 	ArrayList Agenda = new ArrayList();
 
@@ -34,6 +43,9 @@ public class Inicio extends JFrame {
 	private JTextField textBuscar;
 	private JTable table;
 
+	/**
+	 * @param Main Iniciamos la Aplicacion
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -49,6 +61,10 @@ public class Inicio extends JFrame {
 
 	}
 
+	/**
+	 * @param Inicio Esta clase contiene todos los objetos que se usarán en esta
+	 *               aplicacion
+	 */
 	public Inicio() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1046, 548);
@@ -117,7 +133,10 @@ public class Inicio extends JFrame {
 				String d = textDireccion.getText();
 				String e = textEmail.getText();
 				String t = textTelefono.getText();
-
+				/**
+				 * @thows aqui comprobamos que cada campo del formulario no este vacio y de ser
+				 *        asi que muestre un mensaje de error
+				 */
 				if (!n.isEmpty()) {
 					if (!a.isEmpty()) {
 						if (!d.isEmpty()) {
@@ -223,6 +242,13 @@ public class Inicio extends JFrame {
 
 	}
 
+	/**
+	 * 
+	 * @param cargarDatos Este metodo se encargar de cargar los datos de las
+	 *                    variables TextField con los datos de los usuarios
+	 *                    guardados en el campo con que pertence a una ArrayList
+	 *                    llamada Agenda
+	 */
 	public static void cargarDatos(Contactos con) {
 		textNombre.setText(con.getNombre());
 		textApellido.setText(con.getApellido());
@@ -234,7 +260,10 @@ public class Inicio extends JFrame {
 
 	DefaultTableModel M;
 
-
+	/**
+	 * @param CrearModelo En este metodo se crea el modelo que tendrá la tabla en la
+	 *                    que se mostraran los datos de nuestros contactos
+	 */
 
 	private void CrearModelo() {
 		try {
@@ -245,7 +274,13 @@ public class Inicio extends JFrame {
 		}
 	}
 
-
+	/**
+	 * 
+	 * @param bus Este metodo se encarga de hacer una comparacion entre el dato que
+	 *            introducimos por el campo bus con los datos que se encuentran
+	 *            almacenados en el ArrayList Agenda y si coinciden los campos
+	 *            telefono o email se muestra el resto de datos de dicho contacto
+	 */
 
 	public void buscar(String bus) {
 		for (int i = 0; i < Agenda.size(); i++) {
@@ -255,7 +290,10 @@ public class Inicio extends JFrame {
 			} else if ((c.getTelefono()).equalsIgnoreCase(bus)) {
 				Inicio.cargarDatos(c);
 			}
-
+			/**
+			 * @throws bus.isEmpty aqui se comprueba que el campo bus no este vacio y de ser
+			 *                     así que muestre un mensaje de error
+			 */
 
 			if (bus.isEmpty()) {
 				JOptionPane.showMessageDialog(null,
