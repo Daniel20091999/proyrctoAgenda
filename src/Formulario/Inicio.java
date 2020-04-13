@@ -20,6 +20,8 @@ import javax.swing.table.DefaultTableModel;
 import Clase.Contactos;
 
 
+/*Comentario de prueba para git despues de haber echo la rama paralela */
+
 public class Inicio extends JFrame {
 	ArrayList Agenda = new ArrayList();
 
