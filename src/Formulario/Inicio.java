@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 import Clase.Contactos;
 
+
 public class Inicio extends JFrame {
 	ArrayList Agenda = new ArrayList();
 
@@ -45,6 +46,7 @@ public class Inicio extends JFrame {
 		});
 
 	}
+
 	public Inicio() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1046, 548);
@@ -113,6 +115,7 @@ public class Inicio extends JFrame {
 				String d = textDireccion.getText();
 				String e = textEmail.getText();
 				String t = textTelefono.getText();
+
 				if (!n.isEmpty()) {
 					if (!a.isEmpty()) {
 						if (!d.isEmpty()) {
@@ -217,6 +220,7 @@ public class Inicio extends JFrame {
 		contentPane.add(btnSalir);
 
 	}
+
 	public static void cargarDatos(Contactos con) {
 		textNombre.setText(con.getNombre());
 		textApellido.setText(con.getApellido());
@@ -226,7 +230,8 @@ public class Inicio extends JFrame {
 
 	}
 
-DefaultTableModel M;
+	DefaultTableModel M;
+
 
 
 	private void CrearModelo() {
@@ -236,5 +241,25 @@ DefaultTableModel M;
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Error");
 		}
+	}
+
+
+
+	public void buscar(String bus) {
+		for (int i = 0; i < Agenda.size(); i++) {
+			Contactos c = (Contactos) Agenda.get(i);
+			if (c.getEmail().equalsIgnoreCase(bus)) {
+				Inicio.cargarDatos(c);
+			} else if ((c.getTelefono()).equalsIgnoreCase(bus)) {
+				Inicio.cargarDatos(c);
+			}
+
+
+			if (bus.isEmpty()) {
+				JOptionPane.showMessageDialog(null,
+						"Por favor ingrese un numero de telefono o un email para la busqueda");
+			}
+		}
+
 	}
 }
